@@ -34,6 +34,11 @@ UNET_MODELS=(
 
 )
 
+CLIP_VISION_MODELS=(
+    #wan2.1
+    "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/clip_vision/clip_vision_h.safetensors"
+)
+
 LORA_MODELS=(
     #"https://civitai.com/api/download/models/16576"
 )
@@ -42,6 +47,8 @@ VAE_MODELS=(
     "https://huggingface.co/stabilityai/sd-vae-ft-ema-original/resolve/main/vae-ft-ema-560000-ema-pruned.safetensors"
     "https://huggingface.co/stabilityai/sd-vae-ft-mse-original/resolve/main/vae-ft-mse-840000-ema-pruned.safetensors"
     "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors"
+    # wan2.1
+    "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/vae/wan_2.1_vae.safetensors"
 )
 
 ESRGAN_MODELS=(
@@ -103,7 +110,10 @@ function provisioning_start() {
         "${VAE_MODELS[@]}"
     provisioning_get_models \
         "${WORKSPACE}/storage/stable_diffusion/models/esrgan" \
-        "${ESRGAN_MODELS[@]}"
+        "${ESRGAN_MODELS[@]}"    
+    provisioning_get_models \
+        "${WORKSPACE}/storage/stable_diffusion/models/clip_vision" \
+        "${CLIP_VISION_MODELS[@]}"
     provisioning_print_end
 }
 
