@@ -14,6 +14,8 @@ APT_PACKAGES=(
 )
 
 PIP_PACKAGES=(
+    "wheel"
+    "flash_attn"
     #"package-1"
     #"package-2"
 )
